@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Day</title>
+  <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="HTML/snake.html">Snake Game</a></li>
+        <li><a href="HTML/surprise.html">Surprise</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div id="vanta-canvas"></div> <!-- Animated background -->
+  <main class="main-content">
+    <div class="button-container">
+      <h1>Happy Valentine's Day, Jordan!</h1>
+      <button class="paragraph-button">
+        <p>Hello and happy Valentine's Day, Amore Mia. I am not so good when it comes to making physical gifts, so I just decided to make something for you with the skills that I do have.</p>
+      </button>
+      <button class="paragraph-button">
+        <p>I am sad that I can't spend the day with you, but I hope that this website brings you as much joy as you bring me. I will always love you.</p>
+      </button>
+      <button class="paragraph-button">
+        <p>I honestly can't put my words together as I'm developing this, so I just hope you enjoy all the goodies this is. I truly do love you a lot, and I'm so happy that I met you.</p>
+      </button>
+    </div>
+    <!-- Add images -->
+    <img src="./Other Resources/main2M.jpg" alt="Main2M" class="left-image">
+    <img src="./Other Resources/Main2F.jpg" alt="Main2F" class="right-image">
+    <img src="./Other Resources/main1.jpg" alt="Main1" class="bottom-image">
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r120/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.clouds.min.js"></script>
+  <script>
+    VANTA.CLOUDS ({
+      el: "#vanta-canvas",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 987.00, // Adjusted minHeight value
+      minWidth: 200.00,
+      skyColor: 0x8000ff,
+      cloudColor: 0xe7900,
+      cloudShadowColor: 0x0,
+      sunlightColor: 0xff7e
+    });
+
+    setTimeout(() => {
+      const main = document.querySelector('.main-content') // Corrected selector
+      main.style.opacity = 1;
+      main.style.filter = 'blur(0px)';
+    }, 1000)
+  </script>
+</body>
+</html>

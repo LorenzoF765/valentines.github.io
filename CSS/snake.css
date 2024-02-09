@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5e1ff; /* Light purple background */
+  }
+  
+  header {
+    background-color: #8000ff; /* Darker purple */
+    padding: 10px 0;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #fff; /* White text */
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+    padding: 8px 15px; /* Padding for buttons */
+    border-radius: 10px; /* Rounded corners */
+  }
+  
+  .game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #6b0093; /* Darker purple */
+  }
+  
+  canvas {
+    background-color: #8000ff; /* Darker purple */
+    border: 5px solid #4a005e; /* Even darker border */
+  }
+  .game-text {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-size: 20px;
+  }
