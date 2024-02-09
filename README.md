@@ -25,6 +25,7 @@ On top of those, you need a development environment capable of coding in
  - HTML
  - Javascript
  - CSS
+ 
  I used Visual Studio Code!
 
 Have fun!
