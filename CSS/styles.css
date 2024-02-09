@@ -91,11 +91,11 @@ body {
   .bottom-image {
     display: block;
     margin: 20px auto; /* Center the image horizontally with some space around it */
-    width: 400px;
+    width: 33%;
     height: auto;
   }
   /* Image styles */
 .left-image, .right-image {
-    width: 290px; /* Set the width of the images */
-    height: 290px; /* Maintain aspect ratio */
+    width: 17%; /* Set the width of the images */
+    height: auto; /* Maintain aspect ratio */
   }
