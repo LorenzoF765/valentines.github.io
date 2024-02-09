@@ -3,6 +3,7 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     position: relative; /* Ensure proper stacking order */
+    overflow: hidden;
   }
   
   header {
@@ -74,7 +75,6 @@ body {
     display: block; /* Make button full width */
     margin: 20px auto; /* Center the buttons horizontally and add vertical spacing */
     max-width: 80%; /* Limit maximum width */
-    cursor: pointer; /* Change cursor on hover */
     transition: background-color 0.3s ease; /* Smooth transition */
   }
   /* Image styles */
@@ -98,4 +98,23 @@ body {
 .left-image, .right-image {
     width: 17%; /* Set the width of the images */
     height: auto; /* Maintain aspect ratio */
+  }
+  .heart-button {
+    background-color: rgba(252, 156, 236, 0.5); /* Semi-transparent white */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Center the text */
+    border: none; /* Remove button border */
+    display: block; /* Make button full width */
+    margin: 20px auto; /* Center the buttons horizontally and add vertical spacing */
+    max-width: 80%; /* Limit maximum width */
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+  }
+  .heart-button:hover {
+    background-color: pink;
+  }
+  .heart-image {
+    height: 30px;
+    width: auto;
   }
