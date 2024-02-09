@@ -108,6 +108,8 @@ function gameLoop() {
 
 // Function to handle game over
 function gameOver() {
+  console.log("Game Over function called"); // Check if the function is called
+
   // Display game over message
   ctx.fillStyle = '#000000'; // Text color (black)
   ctx.font = '30px Arial';
@@ -123,33 +125,29 @@ function gameOver() {
   ctx.fillStyle = '#FFFFFF'; // Text color (white)
   ctx.font = '16px Arial';
   ctx.fillText('Replay', canvas.width / 2 - 25, canvas.height / 2 + 75);
-
   // Listen for click on replay button
   canvas.addEventListener('click', replayGame);
 }
 
+
 // Function to replay the game
 function replayGame(event) {
+  console.log("Replay button clicked"); // Check if the function is triggered
+
   const rect = canvas.getBoundingClientRect();
   const mouseX = event.clientX - rect.left;
   const mouseY = event.clientY - rect.top;
 
+  console.log("Mouse coordinates: ", mouseX, mouseY); // Log mouse coordinates
+
   // Check if click is within replay button area
   if (mouseX >= canvas.width / 2 - 50 && mouseX <= canvas.width / 2 + 50 && mouseY >= canvas.height / 2 + 50 && mouseY <= canvas.height / 2 + 90) {
-    // Reset game variables
-    snake = [];
-    direction = 'right';
-    food = {};
-    score = 0;
+    console.log("Replay button clicked successfully"); // Log if the replay button is clicked successfully
 
-    // Remove event listener
-    canvas.removeEventListener('click', replayGame);
-
-    // Start game again
-    startGame();
+    // Refresh the page
+    window.location.reload();
   }
 }
-
 // Draw start button initially
 drawStartButton();
 
