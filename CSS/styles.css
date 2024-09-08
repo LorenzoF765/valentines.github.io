@@ -11,6 +11,8 @@ body {
 header {
   background-color: #004d00; /* Dark green background */
   padding: 10px 0;
+  position: relative;
+  z-index: 1000; /* Ensure header is above other content */
 }
 
 /* Navigation styles */
@@ -40,6 +42,13 @@ nav ul li a:hover {
 }
 
 /* Main content styling */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
 .main-content {
   text-align: center;
   position: relative;
