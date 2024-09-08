@@ -1,18 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const yesButton = document.getElementById('yesButton');
-    const noButton = document.getElementById('noButton');
-    const message = document.querySelector('.message');
-  
-    yesButton.addEventListener('click', function() {
-      message.style.display = 'block';
-      yesButton.style.display = 'none';
-      noButton.style.display = 'none';
-    });
-  
-    let count = 0; // Counter to keep track of the number of times "No" button is clicked
-    noButton.addEventListener('click', function() {
-      noButton.textContent = 'Are you sure?';
-      yesButton.style.transform = `scale(${1.1 + count * 0.1})`; // Increase size of "Yes" button
-      count++;
-    });
-  });
+  // Remove the existing functionality
+
+  // Create an iframe element for the Spotify playlist embed
+  const iframe = document.createElement('iframe');
+  iframe.style.borderRadius = '12px';
+  iframe.src = 'https://open.spotify.com/embed/playlist/0IKdt8G6HTp9UzuD6fEW0Y?utm_source=generator';
+  iframe.width = '100%';
+  iframe.height = '352';
+  iframe.frameBorder = '0';
+  iframe.allowFullscreen = true;
+  iframe.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+  iframe.loading = 'lazy';
+
+  // Append the iframe to the body or a specific container
+  document.body.appendChild(iframe);
+});

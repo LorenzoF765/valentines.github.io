@@ -1,120 +1,131 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    position: relative; /* Ensure proper stacking order */
-    overflow: hidden;
-  }
-  
-  header {
-    background-color: #8000ff; /* Purple background */
-    padding: 10px 0;
-    position: relative; /* Ensure proper stacking order */
-    z-index: 999; /* Ensure it's above the animated background */
-  }
-  
-  nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
-  
-  nav ul li {
-    display: inline;
-    margin-right: 20px;
-  }
-  
-  nav ul li a {
-    text-decoration: none;
-    color: #fff; /* White text */
-    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
-    padding: 8px 15px; /* Padding for buttons */
-    border-radius: 10px; /* Rounded corners */
-    transition: background-color 0.3s ease, opacity 0.3s ease; /* Smooth transition */
-  }
-  
-  /* Change button opacity on hover */
-  nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.7); /* Less transparent white */
-  }
-  #vanta-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .main-content {
-    text-align: center;
-    position: relative;
-    z-index: 2;
-  }
-  
-  .button-container {
-    position: relative;
-    display: inline-block;
-    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
-    padding: 20px;
-    border-radius: 10px; /* Rounded corners */
-    text-align: center; /* Center the text */
-    max-width: 60%; /* Limit maximum width */
-    margin: auto; /* Center horizontally */
-  }
-  
-  .button-container p {
-    margin: 20px 0; /* Increase vertical spacing between paragraphs */
-  }
-  .paragraph-button {
-    background-color: rgba(252, 156, 236, 0.5); /* Semi-transparent white */
-    padding: 20px;
-    border-radius: 10px; /* Rounded corners */
-    text-align: center; /* Center the text */
-    border: none; /* Remove button border */
-    display: block; /* Make button full width */
-    margin: 20px auto; /* Center the buttons horizontally and add vertical spacing */
-    max-width: 80%; /* Limit maximum width */
-    transition: background-color 0.3s ease; /* Smooth transition */
-  }
-  /* Image styles */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  position: relative; /* Ensure proper stacking order */
+  overflow: hidden;
+  background-color: #2f4f2f; /* Darker green background */
+}
+
+header {
+  background-color: #004d00; /* Dark green background */
+  padding: 10px 0;
+  position: relative; /* Ensure proper stacking order */
+  z-index: 999; /* Ensure it's above the animated background */
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff; /* White text */
+  background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
+  padding: 8px 15px; /* Padding for buttons */
+  border-radius: 10px; /* Rounded corners */
+  transition: background-color 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+}
+
+nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.5); /* Less transparent white */
+}
+
+#vanta-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.main-content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  color: #fff; /* White text for contrast */
+}
+
+.button-container {
+  position: relative;
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.2); /* More transparent white */
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners */
+  text-align: center; /* Center the text */
+  max-width: 60%; /* Limit maximum width */
+  margin: auto; /* Center horizontally */
+}
+
+.button-container p {
+  margin: 20px 0; /* Increase vertical spacing between paragraphs */
+  color: #fff; /* White text */
+}
+
+.paragraph-button {
+  background-color: rgba(34, 139, 34, 0.3); /* Semi-transparent darker green */
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners */
+  text-align: center; /* Center the text */
+  border: none; /* Remove button border */
+  display: block; /* Make button full width */
+  margin: 20px auto; /* Center the buttons horizontally and add vertical spacing */
+  max-width: 80%; /* Limit maximum width */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.paragraph-button:hover {
+  background-color: rgba(34, 139, 34, 0.5); /* Less transparent darker green */
+}
+
 .left-image {
-    float: left;
-    margin-right: 20px; /* Add some space to the right of the image */
-  }
-  
-  .right-image {
-    float: right;
-    margin-left: 20px; /* Add some space to the left of the image */
-  }
-  
-  .bottom-image {
-    display: block;
-    margin: 20px auto; /* Center the image horizontally with some space around it */
-    width: 33%;
-    height: auto;
-  }
-  /* Image styles */
+  float: left;
+  margin-right: 20px; /* Add some space to the right of the image */
+}
+
+.right-image {
+  float: right;
+  margin-left: 20px; /* Add some space to the left of the image */
+}
+
+.bottom-image {
+  display: block;
+  margin: 20px auto; /* Center the image horizontally with some space around it */
+  width: 33%;
+  height: auto;
+}
+
 .left-image, .right-image {
-    width: 17%; /* Set the width of the images */
-    height: auto; /* Maintain aspect ratio */
-  }
-  .heart-button {
-    background-color: rgba(252, 156, 236, 0.5); /* Semi-transparent white */
-    padding: 20px;
-    border-radius: 10px; /* Rounded corners */
-    text-align: center; /* Center the text */
-    border: none; /* Remove button border */
-    display: block; /* Make button full width */
-    margin: 20px auto; /* Center the buttons horizontally and add vertical spacing */
-    max-width: 80%; /* Limit maximum width */
-    cursor: pointer; /* Change cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth transition */
-  }
-  .heart-button:hover {
-    background-color: pink;
-  }
-  .heart-image {
-    height: 30px;
-    width: auto;
-  }
+  width: 17%; /* Set the width of the images */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.heart-button {
+  background-color: rgba(34, 139, 34, 0.3); /* Semi-transparent darker green */
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners */
+  text-align: center; /* Center the text */
+  border: none; /* Remove button border */
+  display: block; /* Make button full width */
+  margin: 20px auto; /* Center the buttons horizontally and add vertical spacing */
+  max-width: 80%; /* Limit maximum width */
+  cursor: pointer; /* Change cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.heart-button:hover {
+  background-color: rgba(34, 139, 34, 0.5); /* Less transparent darker green */
+}
+
+.heart-image {
+  height: 30px;
+  width: auto;
+}

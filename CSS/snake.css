@@ -1,54 +1,102 @@
+/* Global styles */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f5e1ff; /* Light purple background */
-    overflow: hidden;
-  }
-  
-  header {
-    background-color: #8000ff; /* Darker purple */
-    padding: 10px 0;
-  }
-  
-  nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
-  
-  nav ul li {
-    display: inline;
-    margin-right: 20px;
-  }
-  
-  nav ul li a {
-    text-decoration: none;
-    color: #fff; /* White text */
-    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
-    padding: 8px 15px; /* Padding for buttons */
-    border-radius: 10px; /* Rounded corners */
-  }
-  
-  .game-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #6b0093; /* Darker purple */
-  }
-  
-  canvas {
-    background-color: #8000ff; /* Darker purple */
-    border: 5px solid #4a005e; /* Even darker border */
-  }
-  .game-text {
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    font-size: 20px;
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #d0f0c0; /* Light green background */
+  overflow: hidden;
+}
+
+/* Header styles */
+header {
+  background-color: #004d00; /* Dark green background for the header */
+  padding: 10px 0;
+}
+
+/* Navigation styles */
+nav ul {
+  background-color: #004d00; /* Dark green background for nav */
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #fff; /* White text color */
+  background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
+  border-radius: 5px; /* Rounded corners */
+}
+
+nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.5); /* Less transparent white on hover */
+  color: #004d00; /* Dark green text color on hover */
+}
+
+/* Game container */
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #004d00; /* Dark green background */
+}
+
+/* Canvas styles */
+canvas {
+  background-color: #004d00; /* Dark green background */
+  border: 5px solid #003300; /* Even darker green border */
+}
+
+/* Game text */
+.game-text {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
+
+/* Button container */
+.button-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.button-container p {
+  margin-bottom: 10px;
+  color: white; /* White text */
+}
+
+.button-container button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4caf50; /* Green background for buttons */
+  color: #fff; /* White text color */
+  border: 2px solid #388e3c; /* Darker green border */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.button-container button:hover {
+  background-color: #388e3c; /* Darker green background on hover */
+  color: #fff; /* White text color on hover */
+  cursor: pointer; /* Show pointer cursor on hover */
+}
+
+/* Message styles */
+.message {
+  margin-top: 20px;
+  text-align: center;
+  color: white; /* White text */
+}

@@ -1,76 +1,72 @@
 /* Global styles */
 body {
-    font-family: Arial, sans-serif; /* Use Arial font */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-  }
-  
-  /* Header styles */
-  header {
-    background-color: #ff99cc; /* Light pink background for the header */
-    padding: 10px 0; /* Add some padding */
-  }
-  
-  /* Navigation styles */
-  nav ul {
-    background-color: #ff99cc;
-    list-style-type: none; /* Remove bullet points */
-    margin: 0;
-    padding: 0;
-    text-align: center; /* Center the navigation items */
-  }
-  
-  nav ul li {
-    display: inline;
-  }
-  
-  nav ul li a {
-    display: inline-block;
-    padding: 10px 20px; /* Add padding around navigation items */
-    text-decoration: none;
-    color: #ff66b3; /* Darker pink text color for buttons */
-  }
-  
-  nav ul li a:hover {
-    background-color: #ff66b3; /* Darker pink background on hover */
-    color: #ff99cc; /* Light pink text color on hover */
-    border-radius: 5px; /* Rounded corners on hover */
-  }
-  
-  /* Button styles */
-  .button-container {
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  .button-container p {
-    margin-bottom: 10px;
-  }
-  
-  .button-container button {
-    margin: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #ff99cc; /* Light pink background for buttons */
-    color: #ff66b3; /* Darker pink text color for buttons */
-    border: 2px solid #ff66b3; /* Darker pink border */
-    border-radius: 5px; /* Rounded corners */
-  }
-  
-  .button-container button:hover {
-    background-color: #ff66b3; /* Darker pink background on hover */
-    color: #ff99cc; /* Light pink text color on hover */
-    cursor: pointer; /* Show pointer cursor on hover */
-  }
-  
-  /* Message styles */
-  .message {
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  /* Surprise page specific styles */
-  .cat-gif {
-    display: block;
-    margin: 0 auto; /* Center the image horizontally */
-  }
+  font-family: 'Arial', sans-serif; /* Use Arial font */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  background-color: #f0f8f4; /* Light nature-inspired background */
+  color: #333; /* Dark text color for readability */
+}
+
+/* Header styles */
+header {
+  background-color: #004d00; /* Dark green background */
+  padding: 10px 0; /* Add some padding */
+}
+
+nav ul {
+  background-color: #004d00; /* Dark green background */
+  list-style-type: none; /* Remove bullet points */
+  margin: 0;
+  padding: 0;
+  text-align: center; /* Center the navigation items */
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  display: inline-block;
+  padding: 10px 20px; /* Add padding around navigation items */
+  text-decoration: none;
+  color: #fff; /* White text color for buttons */
+  background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.6); /* Less transparent white on hover */
+  color: #004d00; /* Dark green text color on hover */
+}
+
+/* Main content styles */
+.surprise-container {
+  max-width: 800px; /* Max width of the container */
+  margin: 20px auto; /* Center horizontally with margin */
+  padding: 20px;
+  background-color: #e5f9e0; /* Light green background */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center; /* Center the text */
+}
+
+.surprise-container h1 {
+  font-size: 2.5em; /* Larger font size for the heading */
+  color: #004d00; /* Dark green color */
+  margin-bottom: 20px; /* Spacing below the heading */
+}
+
+.surprise-container p {
+  font-size: 1.2em; /* Slightly larger font size */
+  line-height: 1.6; /* Increased line height for readability */
+  margin: 15px 0; /* Spacing between paragraphs */
+}
+
+/* Spotify embed styling */
+iframe {
+  border-radius: 12px;
+  margin-top: 20px; /* Spacing above the iframe */
+  width: 100%;
+  height: 352px; /* Fixed height for the iframe */
+}
