@@ -1,19 +1,19 @@
+/* Global styles */
 body {
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  position: relative; /* Ensure proper stacking order */
-  overflow: hidden;
-  background-color: #2f4f2f; /* Darker green background */
+  background-color: #f0f8f0; /* Light nature-themed background */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+/* Header styles */
 header {
   background-color: #004d00; /* Dark green background */
   padding: 10px 0;
-  position: relative; /* Ensure proper stacking order */
-  z-index: 999; /* Ensure it's above the animated background */
 }
 
+/* Navigation styles */
 nav ul {
   list-style-type: none;
   margin: 0;
@@ -23,109 +23,113 @@ nav ul {
 
 nav ul li {
   display: inline;
-  margin-right: 20px;
+  margin-right: 15px;
 }
 
 nav ul li a {
   text-decoration: none;
-  color: #fff; /* White text */
-  background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
-  padding: 8px 15px; /* Padding for buttons */
-  border-radius: 10px; /* Rounded corners */
-  transition: background-color 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 8px 15px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
 }
 
 nav ul li a:hover {
-  background-color: rgba(255, 255, 255, 0.5); /* Less transparent white */
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
-#vanta-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
+/* Main content styling */
 .main-content {
   text-align: center;
   position: relative;
+  padding: 20px;
   z-index: 2;
-  color: #fff; /* White text for contrast */
 }
 
 .button-container {
-  position: relative;
-  display: inline-block;
-  background-color: rgba(255, 255, 255, 0.2); /* More transparent white */
+  background-color: rgba(255, 255, 255, 0.8);
   padding: 20px;
-  border-radius: 10px; /* Rounded corners */
-  text-align: center; /* Center the text */
-  max-width: 60%; /* Limit maximum width */
-  margin: auto; /* Center horizontally */
+  border-radius: 10px;
+  margin: 0 auto;
+  max-width: 90%;
 }
 
 .button-container p {
-  margin: 20px 0; /* Increase vertical spacing between paragraphs */
-  color: #fff; /* White text */
+  margin: 15px 0;
 }
 
 .paragraph-button {
-  background-color: rgba(34, 139, 34, 0.3); /* Semi-transparent darker green */
-  padding: 20px;
-  border-radius: 10px; /* Rounded corners */
-  text-align: center; /* Center the text */
-  border: none; /* Remove button border */
-  display: block; /* Make button full width */
-  margin: 20px auto; /* Center the buttons horizontally and add vertical spacing */
-  max-width: 80%; /* Limit maximum width */
-  transition: background-color 0.3s ease; /* Smooth transition */
+  background-color: rgba(0, 128, 0, 0.5);
+  color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  display: block;
+  margin: 10px auto;
+  max-width: 100%;
+  transition: background-color 0.3s ease;
+  text-align: left;
 }
 
 .paragraph-button:hover {
-  background-color: rgba(34, 139, 34, 0.5); /* Less transparent darker green */
-}
-
-.left-image {
-  float: left;
-  margin-right: 20px; /* Add some space to the right of the image */
-}
-
-.right-image {
-  float: right;
-  margin-left: 20px; /* Add some space to the left of the image */
-}
-
-.bottom-image {
-  display: block;
-  margin: 20px auto; /* Center the image horizontally with some space around it */
-  width: 33%;
-  height: auto;
+  background-color: rgba(0, 128, 0, 0.7);
 }
 
 .left-image, .right-image {
-  width: 17%; /* Set the width of the images */
-  height: auto; /* Maintain aspect ratio */
+  width: 45%;
+  height: auto;
+  margin: 10px;
 }
 
 .heart-button {
-  background-color: rgba(34, 139, 34, 0.3); /* Semi-transparent darker green */
-  padding: 20px;
-  border-radius: 10px; /* Rounded corners */
-  text-align: center; /* Center the text */
-  border: none; /* Remove button border */
-  display: block; /* Make button full width */
-  margin: 20px auto; /* Center the buttons horizontally and add vertical spacing */
-  max-width: 80%; /* Limit maximum width */
-  cursor: pointer; /* Change cursor on hover */
-  transition: background-color 0.3s ease; /* Smooth transition */
+  background-color: rgba(0, 128, 0, 0.5);
+  color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  display: block;
+  margin: 20px auto;
+  max-width: 80%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .heart-button:hover {
-  background-color: rgba(34, 139, 34, 0.5); /* Less transparent darker green */
+  background-color: rgba(0, 128, 0, 0.7);
 }
 
-.heart-image {
-  height: 30px;
-  width: auto;
+/* Responsive styles */
+@media (max-width: 768px) {
+  nav ul li {
+      display: block;
+      margin-bottom: 10px;
+  }
+
+  .left-image, .right-image {
+      width: 80%;
+  }
+
+  .button-container {
+      padding: 10px;
+  }
+
+  .paragraph-button {
+      padding: 10px;
+      font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .button-container {
+      max-width: 95%;
+  }
+  
+  .paragraph-button {
+      font-size: 12px;
+  }
+
+  .left-image, .right-image {
+      width: 100%;
+  }
 }

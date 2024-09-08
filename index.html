@@ -36,7 +36,6 @@
     <!-- Heart button with Spotify link -->
     <a href="https://open.spotify.com/track/6cx5CvFhqN19efStehJqoW?si=9127a983e1fe4344" target="_blank" rel="noopener noreferrer">
       <button class="heart-button">
-        <img src="./Other Resources/heart.jpg" alt="Heart" class="heart-image">
         <span>For you, Charlotte</span>
       </button>
     </a>
@@ -44,13 +43,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r120/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.clouds.min.js"></script>
   <script>
-    VANTA.CLOUDS ({
+    VANTA.CLOUDS({
       el: "#vanta-canvas",
       mouseControls: true,
       touchControls: true,
       gyroControls: false,
-      minHeight: 987.00, // Adjusted minHeight value
-      minWidth: 200.00,
+      minHeight: 400, // Adjusted minHeight value for mobile
+      minWidth: 200,
       skyColor: 0x8000ff,
       cloudColor: 0xe7900,
       cloudShadowColor: 0x0,
@@ -58,10 +57,10 @@
     });
 
     setTimeout(() => {
-      const main = document.querySelector('.main-content')
+      const main = document.querySelector('.main-content');
       main.style.opacity = 1;
       main.style.filter = 'blur(0px)';
-    }, 1000)
+    }, 1000);
   </script>
 </body>
 </html>
