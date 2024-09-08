@@ -6,6 +6,148 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>For Charlotte</title>
   <link rel="stylesheet" href="CSS/styles.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5e1ff; /* Light purple background */
+      overflow-x: hidden;
+    }
+    
+    header {
+      background-color: #8000ff; /* Darker purple */
+      padding: 10px 0;
+    }
+    
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    
+    nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
+    
+    nav ul li a {
+      text-decoration: none;
+      color: #fff; /* White text */
+      background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+      padding: 8px 15px; /* Padding for buttons */
+      border-radius: 10px; /* Rounded corners */
+    }
+    
+    nav ul li a:hover {
+      background-color: rgba(255, 255, 255, 0.7); /* Less transparent white */
+    }
+    
+    #vanta-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200vw; /* 100% of viewport width */
+      height: 200vh; /* 100% of viewport height */
+      z-index: -1; /* Behind content */
+    }
+    
+    .main-content {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      padding: 20px;
+    }
+    
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+      padding: 20px;
+      border-radius: 10px; /* Rounded corners */
+      max-width: 90%; /* Limit maximum width */
+      margin: auto; /* Center horizontally */
+    }
+    
+    .button-container p {
+      margin: 20px 0; /* Increase vertical spacing between paragraphs */
+      font-size: 16px; /* Increase text size */
+      line-height: 1.5; /* Improve readability */
+    }
+    
+    .paragraph-button {
+      background-color: transparent;
+      border: none;
+      text-align: center;
+      display: block;
+      margin: 20px auto;
+      max-width: 100%;
+    }
+    
+    .paragraph-button p {
+      font-size: 18px;
+    }
+    
+    .images-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px; /* Space between images */
+      margin-top: 20px;
+    }
+    
+    .left-image,
+    .right-image {
+      max-width: 45%; /* Smaller width and space them apart */
+      height: auto;
+    }
+    
+    .heart-button {
+      background-color: transparent;
+      border: none;
+      display: block;
+      margin: 20px auto;
+      max-width: 80%;
+      cursor: pointer;
+    }
+    
+    .heart-button iframe {
+      width: 300px; /* Smaller width */
+      height: 80px; /* Smaller height */
+    }
+    
+    .heart-button span {
+      display: block;
+      margin-top: 10px;
+      font-size: 16px; /* Adjust font size */
+    }
+    
+    @media (max-width: 600px) {
+      nav ul li {
+        display: block;
+        margin-bottom: 10px;
+      }
+      
+      .button-container {
+        padding: 10px;
+      }
+      
+      .paragraph-button p {
+        font-size: 16px;
+      }
+      
+      .left-image,
+      .right-image {
+        max-width: 90%; /* Adjust for smaller screens */
+      }
+      
+      .heart-button iframe {
+        width: 100%; /* Full width on small screens */
+        height: auto; /* Maintain aspect ratio */
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -31,25 +173,26 @@
         <p>I might not always have the right words, but I hope you know how much I cherish you. Creating this for you is my way of saying thank you for being in my life. You are truly special to me.</p>
       </button>
     </div>
-    <img src="./Other Resources/main2M.jpg" alt="Main2M" class="left-image">
-    <img src="./Other Resources/Main2F.jpg" alt="Main2F" class="right-image">
-    <!-- Heart button with Spotify link -->
-    <a href="https://open.spotify.com/track/6cx5CvFhqN19efStehJqoW?si=9127a983e1fe4344" target="_blank" rel="noopener noreferrer">
-      <button class="heart-button">
-        <span>For you, Charlotte</span>
-      </button>
-    </a>
+    <div class="images-container">
+      <img src="./Other Resources/main2M.jpg" alt="Main2M" class="left-image">
+      <img src="./Other Resources/Main2F.jpg" alt="Main2F" class="right-image">
+    </div>
+    <!-- Spotify embed -->
+    <div class="heart-button">
+      <iframe src="https://open.spotify.com/embed/track/6cx5CvFhqN19efStehJqoW?si=9127a983e1fe4344" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      <span>For you, Charlotte</span>
+    </div>
   </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r120/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.clouds.min.js"></script>
   <script>
-    VANTA.CLOUDS({
+    VANTA.CLOUDS ({
       el: "#vanta-canvas",
       mouseControls: true,
       touchControls: true,
       gyroControls: false,
-      minHeight: 400, // Adjusted minHeight value for mobile
-      minWidth: 200,
+      minHeight: 987.00,
+      minWidth: 200.00,
       skyColor: 0x8000ff,
       cloudColor: 0xe7900,
       cloudShadowColor: 0x0,

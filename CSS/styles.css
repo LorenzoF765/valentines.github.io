@@ -139,6 +139,6 @@ main {
   }
 
   .left-image, .right-image {
-      width: 100%;
+      width: 50%;
   }
 }
