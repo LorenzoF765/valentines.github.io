@@ -1,31 +1,26 @@
-# For Jordan
+# For Charlotte
 
 ## Introduction
 
-This is a Github Pages project that I developed for my girlfriend Jordan, she is wonderful and deserves this.
-It was very fun, and I hope she enjoys it. If you have a girlfriend in need of a valentines gift, have at it. 
-(I will be unaware of your sins, but you will always remember >:) )
+This is a GitHub Pages project that I developed for my girlfriend Charlotte. She is an amazing person, and I wanted to create something special to show my appreciation for her. I hope she enjoys this little gift as much as I enjoyed making it. If you're looking for a meaningful way to celebrate someone special, feel free to use this as inspiration.
 
 ## Development
 
-It's nothing special, just some quick CSS and HTML Development. I developed a JS snake game before, and just re-used and updated that code
-I developed the JS for the Yes/No buttons myself, and they're still pretty simple.
-For the animated background on the Index page, I used Vanta.js. I used their clouds variation.
-I utilized a simple understanding of JS, CSS, and HTML. I added code comments where I deemed necessary, feel free to add more to your own rendition of this.
+This project combines various web technologies to create a personalized experience:
+
+- **HTML & CSS**: Designed with a nature-themed aesthetic, focusing on darker greens and lighter, nature-inspired colors for a cohesive look.
+- **JavaScript**: Includes a custom Flappy Bird game with adjusted difficulty and a start button, incorporating a countdown before the game begins. The game is designed to be more user-friendly and suitable for mobile devices.
+- **Spotify Integration**: Replaced the previous heart image with an embedded Spotify player, allowing users to listen to a selected track directly from the page.
+- **Vanta.js**: For the animated background, I used the Vanta.js library with the "clouds" effect, adding a dynamic and visually appealing element to the page.
+
+I utilized a straightforward approach with JavaScript, CSS, and HTML, ensuring that the code is easy to follow and modify. I've added comments to the code to help you understand how different components come together.
 
 ## Installation
 
-As I mentioned above, to use an animated background like that, i'd look at Vanta.js, and see all of their options. I also recommend using three.js, links below.
+To set up a project like this, you'll need the following:
 
-https://www.vantajs.com
-https://cdnjs.com/libraries/vanta
-https://cdnjs.com/libraries/three.js
+- **Vanta.js**: For animated backgrounds. Check out their options at [Vanta.js](https://www.vantajs.com).
+- **Three.js**: A library required by Vanta.js. Find it at [Three.js CDN](https://cdnjs.com/libraries/three.js).
+- **Development Environment**: Any environment capable of coding in HTML, JavaScript, and CSS. I used Visual Studio Code.
 
-On top of those, you need a development environment capable of coding in
- - HTML
- - Javascript
- - CSS
- 
- I used Visual Studio Code!
-
-Have fun!
+Feel free to explore the provided links for more details and examples. Enjoy creating your own projects and have fun!
