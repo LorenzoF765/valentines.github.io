@@ -1,175 +1,174 @@
-const canvas = document.getElementById('gameCanvas');
+// Get the canvas element and its context
+const canvas = document.createElement('canvas');
 const ctx = canvas.getContext('2d');
 
-// Game Constants
-const CANVAS_WIDTH = window.innerWidth;
-const CANVAS_HEIGHT = window.innerHeight;
-const BIRD_WIDTH = 34;
-const BIRD_HEIGHT = 24;
-const PIPE_WIDTH = 52;
-const PIPE_HEIGHT = 320;
-const GAP = 400; // Much wider gap between pipes
-const GRAVITY = 0.2; // Slower gravity
-const FLAP_STRENGTH = 8; // Reduced flap strength
-const PIPE_SPEED = 1; // Slower pipe speed
+// Set canvas dimensions
+canvas.width = 400;
+canvas.height = 400;
 
-// Game State
-let birdX = 10;
-let birdY;
-let birdVelocity = 0;
-let pipes = [];
+// Add the canvas to the DOM
+const gameContainer = document.querySelector('.game-container');
+gameContainer.appendChild(canvas);
+
+// Define game variables
+const gridSize = 20;
+let snake = [];
+let direction = 'right';
+let food = {};
 let score = 0;
-let isGameOver = false;
 let gameStarted = false;
-let countdown = 3;
 
-// Placeholder Colors
-const BIRD_COLOR = '#FFD700'; // Gold
-const BG_COLOR = '#70c5ce';   // Sky Blue
-const FG_COLOR = '#228B22';   // Forest Green
-const PIPE_COLOR = '#8B4513'; // Saddle Brown
+// Adjust snake movement speed
+const snakeSpeed = 200; // in milliseconds
 
-// Event Listeners
-document.addEventListener('keydown', handleKeyPress);
-canvas.addEventListener('touchstart', handleTouch);
-document.getElementById('startButton').addEventListener('click', startGame);
-
-function handleKeyPress(event) {
-    if (event.key === ' ') {
-        flap();
-    }
-}
-
-function handleTouch() {
-    flap();
-}
-
-function flap() {
-    if (!isGameOver && gameStarted) {
-        birdVelocity = -FLAP_STRENGTH;
-    }
-}
-
+// Function to start the game
 function startGame() {
-    document.getElementById('startScreen').style.display = 'none';
+  if (!gameStarted) {
+    // Initialize snake
+    snake = [{ x: 10, y: 10 }];
+    direction = 'right';
+    // Generate initial food
+    generateFood();
+    // Start game loop
+    gameLoop();
+    // Update game status
     gameStarted = true;
-    initializeGame();
+  }
 }
 
-function initializeGame() {
-    canvas.width = CANVAS_WIDTH;
-    canvas.height = CANVAS_HEIGHT;
-    birdY = canvas.height / 2;
-    pipes = [{ x: canvas.width, y: getRandomPipeY() }];
-    score = 0;
-    isGameOver = false;
-    countdown = 3;
-    document.getElementById('startButton').style.display = 'none';
-    requestAnimationFrame(countdownLoop);
+// Function to draw the start button
+function drawStartButton() {
+  ctx.fillStyle = '#8000ff'; // Button color (purple)
+  ctx.fillRect(canvas.width / 2 - 50, canvas.height / 2 - 20, 100, 40);
+  ctx.fillStyle = '#FFFFFF'; // Text color (white)
+  ctx.font = '16px Arial';
+  ctx.fillText('Start', canvas.width / 2 - 20, canvas.height / 2 + 5);
 }
 
-function getRandomPipeY() {
-    return Math.floor(Math.random() * (canvas.height - PIPE_HEIGHT - GAP));
+// Function to check collision with self
+function collisionWithSelf(head) {
+  return snake.slice(1).some(segment => segment.x === head.x && segment.y === head.y);
 }
 
-function countdownLoop() {
-    if (countdown > 0) {
-        renderCountdown();
-        countdown--;
-        setTimeout(() => requestAnimationFrame(countdownLoop), 1000);
-    } else {
-        requestAnimationFrame(gameLoop);
-    }
+// Function to generate food at a random position
+function generateFood() {
+  food = {
+    x: Math.floor(Math.random() * (canvas.width / gridSize)),
+    y: Math.floor(Math.random() * (canvas.height / gridSize))
+  };
 }
 
-function renderCountdown() {
-    ctx.fillStyle = BG_COLOR;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
-    ctx.fillStyle = "#000";
-    ctx.font = "40px Verdana";
-    ctx.textAlign = "center";
-    ctx.fillText(`Starting in ${countdown}`, canvas.width / 2, canvas.height / 2);
-}
-
+// Game loop
 function gameLoop() {
-    if (isGameOver) return;
-    
-    update();
-    render();
-    requestAnimationFrame(gameLoop);
+  // Clear the canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Update snake position
+  const head = { x: snake[0].x + (direction === 'left' ? -1 : direction === 'right' ? 1 : 0), y: snake[0].y + (direction === 'up' ? -1 : direction === 'down' ? 1 : 0) };
+
+  // Check for collision with borders
+  if (head.x < 0 || head.x >= canvas.width / gridSize || head.y < 0 || head.y >= canvas.height / gridSize || collisionWithSelf(head)) {
+    // Game over
+    gameOver();
+    return;
+  }
+
+  // Check for collision with food
+  if (head.x === food.x && head.y === food.y) {
+    // Increase score
+    score++;
+    // Generate new food
+    generateFood();
+  } else {
+    // Remove tail
+    snake.pop();
+  }
+
+  // Add new head
+  snake.unshift(head);
+
+  // Render snake
+  ctx.fillStyle = '#00FF00'; // Snake color (green)
+  snake.forEach(segment => {
+    ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize, gridSize);
+  });
+
+  // Render food
+  ctx.fillStyle = '#FF0000'; // Food color (red)
+  ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize, gridSize);
+
+  // Display score
+  ctx.fillStyle = '#000000'; // Text color (black)
+  ctx.font = '20px Arial';
+  ctx.fillText('Score: ' + score, 10, 30);
+
+  // Repeat the game loop
+  setTimeout(gameLoop, snakeSpeed);
 }
 
-function update() {
-    birdY += birdVelocity;
-    birdVelocity += GRAVITY;
-
-    // Pipe movement and collision
-    for (let i = pipes.length - 1; i >= 0; i--) {
-        pipes[i].x -= PIPE_SPEED;
-
-        if (pipes[i].x + PIPE_WIDTH < 0) {
-            pipes.splice(i, 1);
-            score++; // Increase score when pipes pass through
-        } else if (pipes[i].x === canvas.width - PIPE_WIDTH - 200) { // Increase distance between pipes
-            pipes.push({ x: canvas.width, y: getRandomPipeY() });
-        }
-
-        if (checkCollision(pipes[i])) {
-            gameOver();
-        }
-    }
-
-    if (birdY + BIRD_HEIGHT > canvas.height - 50) { // Adjusting for placeholder foreground
-        gameOver();
-    }
-}
-
-function render() {
-    // Draw background
-    ctx.fillStyle = BG_COLOR;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    // Draw pipes
-    pipes.forEach(pipe => {
-        ctx.fillStyle = PIPE_COLOR;
-        ctx.fillRect(pipe.x, pipe.y, PIPE_WIDTH, PIPE_HEIGHT);
-        ctx.fillRect(pipe.x, pipe.y + PIPE_HEIGHT + GAP, PIPE_WIDTH, canvas.height - (pipe.y + PIPE_HEIGHT + GAP));
-    });
-
-    // Draw bird
-    ctx.fillStyle = BIRD_COLOR;
-    ctx.fillRect(birdX, birdY, BIRD_WIDTH, BIRD_HEIGHT);
-
-    // Draw foreground
-    ctx.fillStyle = FG_COLOR;
-    ctx.fillRect(0, canvas.height - 50, canvas.width, 50); // Placeholder foreground
-
-    // Draw score
-    ctx.fillStyle = "#000";
-    ctx.font = "20px Verdana";
-    ctx.fillText(`Score: ${score}`, 10, canvas.height - 20);
-}
-
-function checkCollision(pipe) {
-    return birdX < pipe.x + PIPE_WIDTH &&
-           birdX + BIRD_WIDTH > pipe.x &&
-           (birdY < pipe.y + PIPE_HEIGHT ||
-           birdY + BIRD_HEIGHT > pipe.y + PIPE_HEIGHT + GAP);
-}
-
+// Function to handle game over
 function gameOver() {
-    isGameOver = true;
-    alert(`Game Over! Your Score: ${score}`);
-    document.getElementById('startScreen').style.display = 'flex';
-    document.getElementById('startButton').style.display = 'block';
+  console.log("Game Over function called"); // Check if the function is called
+
+  // Display game over message
+  ctx.fillStyle = '#000000'; // Text color (black)
+  ctx.font = '30px Arial';
+  ctx.fillText('Game Over', canvas.width / 2 - 80, canvas.height / 2 - 15);
+  
+  // Display score
+  ctx.font = '20px Arial';
+  ctx.fillText('Score: ' + score, canvas.width / 2 - 40, canvas.height / 2 + 15);
+
+  // Display replay button
+  ctx.fillStyle = '#8000ff'; // Button color (purple)
+  ctx.fillRect(canvas.width / 2 - 50, canvas.height / 2 + 50, 100, 40);
+  ctx.fillStyle = '#FFFFFF'; // Text color (white)
+  ctx.font = '16px Arial';
+  ctx.fillText('Replay', canvas.width / 2 - 25, canvas.height / 2 + 75);
+  // Listen for click on replay button
+  canvas.addEventListener('click', replayGame);
 }
 
-// Adjust canvas size on window resize
-window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    if (gameStarted) {
-        initializeGame();
-    }
+
+// Function to replay the game
+function replayGame(event) {
+  console.log("Replay button clicked"); // Check if the function is triggered
+
+  const rect = canvas.getBoundingClientRect();
+  const mouseX = event.clientX - rect.left;
+  const mouseY = event.clientY - rect.top;
+
+  console.log("Mouse coordinates: ", mouseX, mouseY); // Log mouse coordinates
+
+  // Check if click is within replay button area
+  if (mouseX >= canvas.width / 2 - 50 && mouseX <= canvas.width / 2 + 50 && mouseY >= canvas.height / 2 + 50 && mouseY <= canvas.height / 2 + 90) {
+    console.log("Replay button clicked successfully"); // Log if the replay button is clicked successfully
+
+    // Refresh the page
+    window.location.reload();
+  }
+}
+// Draw start button initially
+drawStartButton();
+
+// Add event listener for clicking start button
+canvas.addEventListener('click', startGame);
+
+// Add event listener for keyboard input
+document.addEventListener('keydown', function(event) {
+  if (!gameStarted) return; // Ignore input if game hasn't started
+  switch(event.key) {
+    case 'ArrowUp':
+      if (direction !== 'down') direction = 'up';
+      break;
+    case 'ArrowDown':
+      if (direction !== 'up') direction = 'down';
+      break;
+    case 'ArrowLeft':
+      if (direction !== 'right') direction = 'left';
+      break;
+    case 'ArrowRight':
+      if (direction !== 'left') direction = 'right';
+      break;
+  }
 });
