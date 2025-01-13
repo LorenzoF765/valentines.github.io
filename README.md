@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is a GitHub Pages project that I developed for my girlfriend Charlotte. She is an amazing person, and I wanted to create something special to show my appreciation for her. I hope she enjoys this little gift as much as I enjoyed making it. If you're looking for a meaningful way to celebrate someone special, feel free to use this as inspiration.
+This is a GitHub Pages project that I developed for my partner Kirsten. They are an amazing person, and I wanted to create something special to show my appreciation for them. I hope they enjoy this little gift as much as I enjoyed making it. If you're looking for a meaningful way to celebrate someone special, feel free to use this as inspiration.
 
 ## Development
 
